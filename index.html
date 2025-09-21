@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقع لتعليم البرمجة</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f9fafb; color: #333; line-height: 1.6; }
+    header { background: #2563eb; color: #fff; padding: 20px 0; text-align: center; }
+    header h1 { margin: 0; font-size: 1.8rem; }
+    nav { background: #1e3a8a; display: flex; justify-content: center; padding: 10px; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #93c5fd; }
+    main { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+    section { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    section h2 { margin-top: 0; color: #1e3a8a; }
+    button { background: #2563eb; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: #1e40af; }
+    #output { margin-top: 10px; padding: 10px; background: #f3f4f6; border: 1px solid #ddd; border-radius: 5px; }
+    footer { background: #1e3a8a; color: #fff; text-align: center; padding: 15px; margin-top: 20px; border-top: 4px solid #2563eb; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>موقع لتعليم البرمجة</h1>
+    <p>تعلم أساسيات HTML و CSS و JavaScript بطريقة سهلة</p>
+  </header>
+
+  <nav>
+    <a href="#html">HTML</a>
+    <a href="#css">CSS</a>
+    <a href="#js">JavaScript</a>
+  </nav>
+
+  <main>
+    <section id="html">
+      <h2>HTML</h2>
+      <p>HTML هي لغة تُستخدم لبناء هيكل صفحات الويب. تتكون من وسوم مثل العناوين والفقرات والصور والروابط.</p>
+      <pre><code>&lt;h1&gt;مرحباً بالعالم&lt;/h1&gt;
+&lt;p&gt;هذه فقرة نصية.&lt;/p&gt;</code></pre>
+    </section>
+
+    <section id="css">
+      <h2>CSS</h2>
+      <p>CSS هي لغة تُستخدم لتنسيق صفحات الويب، مثل الألوان والخطوط وتوزيع العناصر.</p>
+      <pre><code>h1 {
+  color: blue;
+  text-align: center;
+}</code></pre>
+    </section>
+
+    <section id="js">
+      <h2>JavaScript</h2>
+      <p>JavaScript تُستخدم لإضافة التفاعلية للموقع مثل الأزرار والأحداث.</p>
+      <button onclick="showMessage()">اضغط هنا</button>
+      <div id="output"></div>
+      <pre><code>function showMessage() {
+  document.getElementById("output").innerText = "مرحباً! لقد ضغطت الزر.";
+}</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 موقع لتعليم البرمجة - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById("output").innerText = "مرحباً! لقد ضغطت الزر.";
+    }
+  </script>
+</body>
+</html>
