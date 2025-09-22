@@ -3,71 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>موقع لتعليم البرمجة</title>
+  <title>CodeLearn - تعلم البرمجة</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f9fafb; color: #333; line-height: 1.6; }
-    header { background: #2563eb; color: #fff; padding: 20px 0; text-align: center; }
-    header h1 { margin: 0; font-size: 1.8rem; }
-    nav { background: #1e3a8a; display: flex; justify-content: center; padding: 10px; }
-    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-    nav a:hover { color: #93c5fd; }
-    main { max-width: 900px; margin: 20px auto; padding: 0 15px; }
-    section { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    section h2 { margin-top: 0; color: #1e3a8a; }
-    button { background: #2563eb; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
-    button:hover { background: #1e40af; }
-    #output { margin-top: 10px; padding: 10px; background: #f3f4f6; border: 1px solid #ddd; border-radius: 5px; }
-    footer { background: #1e3a8a; color: #fff; text-align: center; padding: 15px; margin-top: 20px; border-top: 4px solid #2563eb; }
+    /* خطوط وألوان */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 60px 20px; }
+    h2 { font-size: 2rem; margin-bottom: 20px; }
+    p { line-height: 1.6; }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      background-color: #111827;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    nav .container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 15px; }
+    nav .links { display: flex; gap: 20px; }
+    nav .links a:hover { color: #3b82f6; }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+
+    /* Home */
+    #home { 
+      display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 100vh; color: white;
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+    }
+    #home button { padding: 12px 25px; border: none; border-radius: 10px; background-color: white; color: #2563eb; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    #home button:hover { background-color: #f3f4f6; }
+
+    /* Sections */
+    .grid { display: grid; gap: 20px; }
+    .cards { background-color: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+    .cards:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .cards i { font-size: 3rem; margin-bottom: 15px; }
+
+    /* Footer */
+    footer { text-align: center; background-color: #111827; color: white; padding: 20px; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      nav .links { display: none; flex-direction: column; background: #111827; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
+      nav .links.show { display: flex; }
+      .hamburger { display: block; }
+      .grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Grid layout for desktop */
+    #services .grid, #courses .grid, #testimonials .grid { grid-template-columns: repeat(3,1fr); }
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>موقع لتعليم البرمجة</h1>
-    <p>تعلم أساسيات HTML و CSS و JavaScript بطريقة سهلة</p>
-  </header>
 
+  <!-- Navbar -->
   <nav>
-    <a href="#html">HTML</a>
-    <a href="#css">CSS</a>
-    <a href="#js">JavaScript</a>
+    <div class="container">
+      <div class="logo"><strong>CodeLearn</strong></div>
+      <div class="links" id="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#courses">دورات مميزة</a>
+        <a href="#testimonials">آراء الطلاب</a>
+        <a href="#about">من نحن</a>
+        <a href="#subscribe">ابدأ الآن</a>
+      </div>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
   </nav>
 
-  <main>
-    <section id="html">
-      <h2>HTML</h2>
-      <p>HTML هي لغة تُستخدم لبناء هيكل صفحات الويب. تتكون من وسوم مثل العناوين والفقرات والصور والروابط.</p>
-      <pre><code>&lt;h1&gt;مرحباً بالعالم&lt;/h1&gt;
-&lt;p&gt;هذه فقرة نصية.&lt;/p&gt;</code></pre>
-    </section>
+  <!-- Home Section -->
+  <section id="home">
+    <h2>تعلم البرمجة بأسلوب عصري</h2>
+    <p>نوفر لك طرق مبتكرة لتعلم البرمجة، من الدروس التفاعلية إلى المشاريع العملية، بأسلوب ممتع ومواكب للعصر.</p>
+    <button onclick="location.href='#services'">استكشف خدماتنا</button>
+  </section>
 
-    <section id="css">
-      <h2>CSS</h2>
-      <p>CSS هي لغة تُستخدم لتنسيق صفحات الويب، مثل الألوان والخطوط وتوزيع العناصر.</p>
-      <pre><code>h1 {
-  color: blue;
-  text-align: center;
-}</code></pre>
-    </section>
+  <!-- Services -->
+  <section id="services">
+    <h2>خدماتنا</h2>
+    <div class="grid">
+      <div class="cards"><i class="fas fa-laptop-code" style="color:#3b82f6;"></i><h3>دروس تفاعلية</h3><p>تعلم المفاهيم البرمجية بخطوات سهلة مع أمثلة عملية.</p></div>
+      <div class="cards"><i class="fas fa-project-diagram" style="color:#8b5cf6;"></i><h3>مشاريع واقعية</h3><p>ابنِ مشاريع تساعدك على التطبيق العملي للبرمجة.</p></div>
+      <div class="cards"><i class="fas fa-lightbulb" style="color:#facc15;"></i><h3>تطوير المهارات</h3><p>أساليب حديثة لتطوير قدراتك باستمرار.</p></div>
+    </div>
+  </section>
 
-    <section id="js">
-      <h2>JavaScript</h2>
-      <p>JavaScript تُستخدم لإضافة التفاعلية للموقع مثل الأزرار والأحداث.</p>
-      <button onclick="showMessage()">اضغط هنا</button>
-      <div id="output"></div>
-      <pre><code>function showMessage() {
-  document.getElementById("output").innerText = "مرحباً! لقد ضغطت الزر.";
-}</code></pre>
-    </section>
-  </main>
+  <!-- Courses -->
+  <section id="courses" style="background:#f3f4f6;">
+    <h2>دورات مميزة</h2>
+    <div class="grid">
+      <div class="cards"><i class="fab fa-python" style="color:#22c55e;"></i><h3>Python للمبتدئين</h3><p>تعلم أساسيات البرمجة بلغة Python مع مشاريع عملية.</p></div>
+      <div class="cards"><i class="fab fa-js-square" style="color:#facc15;"></i><h3>JavaScript المتقدمة</h3><p>تعلم JS وDOM وES6 لبناء مواقع تفاعلية.</p></div>
+      <div class="cards"><i class="fab fa-react" style="color:#06b6d4;"></i><h3>React للمبتدئين</h3><p>ابدأ رحلتك في تطوير تطبيقات الويب باستخدام React.</p></div>
+    </div>
+  </section>
 
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>آراء الطلاب</h2>
+    <div class="grid">
+      <div class="cards"><img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h3>أحمد</h3><p>الموقع ساعدني أتعلم البرمجة بشكل ممتع وسهل.</p></div>
+      <div class="cards"><img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h3>سارة</h3><p>الدورات العملية كانت رائعة وساعدتني أطبق ما تعلمته.</p></div>
+      <div class="cards"><img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h3>مريم</h3><p>طريقة الشرح ممتعة جداً وأنا أنصح الجميع بالموقع.</p></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="background:#f3f4f6;">
+    <h2>من نحن</h2>
+    <p>نحن فريق من المبرمجين والمعلمين المتحمسين لتبسيط البرمجة وتقديمها بأسلوب ممتع وعصري. رؤيتنا هي جعل تعلم البرمجة متاحًا للجميع، بطريقة عملية وفعّالة.</p>
+  </section>
+
+  <!-- Subscribe -->
+  <section id="subscribe">
+    <h2>ابدأ رحلتك الآن</h2>
+    <p>أدخل بريدك الإلكتروني لتصلك آخر الدروس والدورات المميزة.</p>
+    <form style="max-width:400px;margin:auto;display:flex;flex-wrap:wrap;gap:10px;">
+      <input type="email" placeholder="ادخل بريدك الإلكتروني" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ccc;">
+      <button type="submit" style="padding:10px 20px;border:none;border-radius:8px;background:#2563eb;color:white;cursor:pointer;">اشترك الآن</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 موقع لتعليم البرمجة - جميع الحقوق محفوظة</p>
+    <p>© 2025 CodeLearn - جميع الحقوق محفوظة</p>
   </footer>
 
+  <!-- JS for hamburger -->
   <script>
-    function showMessage() {
-      document.getElementById("output").innerText = "مرحباً! لقد ضغطت الزر.";
-    }
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
   </script>
+
 </body>
 </html>
